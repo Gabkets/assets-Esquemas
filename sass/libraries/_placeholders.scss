@@ -1,0 +1,50 @@
+// PLACEHOLDERS
+
+%clear{
+    &:after, &:before{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+%title{
+    font-family: $font2;
+    //font-weight: bold;
+}
+
+%iconstyle{
+    speak: none;
+    font-family: 'Icons';
+    display: inline-block;
+}
+%unselectable{
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
+}
+
+//
+
+/*%tags-in-navs{
+    @extend %button;
+    display: inline-block;
+    @extend %border;
+    &:hover{
+        color: black;
+        border-color: $blue;
+    }
+}
+%tags-in-navs-main{
+    @extend %tags-in-navs;
+    background: $blue;
+    color: white;
+    &:hover{
+        color: white;
+        border-color: darken($blue,5%);
+    }
+}*/

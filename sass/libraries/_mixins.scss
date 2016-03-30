@@ -1,0 +1,45 @@
+// MIXINS
+
+@mixin icon($code: "", $size:100%, $locate:'before', $pad: .3em) {
+    &:#{$locate}{
+        @if $code {
+            @extend %iconstyle;
+            content: $code;
+            @if $size != 100% {
+                font-size: $size;
+            }
+            @if $locate == 'before' {
+                padding-right: $pad;
+            }
+            @if $locate == 'after' {
+                padding-left: $pad;
+            }
+        }
+        @content;
+    }
+}
+
+@mixin unselectable(){
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+@mixin respond-to($breakpoint) { 
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}

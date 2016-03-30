@@ -1,0 +1,77 @@
+// MIXINS DE ANIMACIONES
+
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        $browser: '-webkit-'; @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        $browser: '-moz-'; @content;
+    }
+    @-o-keyframes #{$animationName} {
+        $browser: '-o-'; @content;
+    }
+    @keyframes #{$animationName} {
+        $browser: ''; @content;
+    }
+}
+
+$browser: null;
+
+// ANIMACIONES
+
+/*@include keyframes(animation-name) {
+   0% {
+       #{$browser}transform: translate3d(100%, 0, 0);
+   }
+   100% {
+      #{$browser}transform: translate3d(0%, 0, 0);
+   }
+}*/
+
+@include keyframes(show-breaking) {
+    0% {
+        #{$browser}transform: scale(.8);
+        #{$browser}opacity:0;
+    }
+    100% {
+        #{$browser}transform: scale(1);
+        #{$browser}opacity:1;
+    }
+}
+@include keyframes(barell-roll) {
+    0% {
+        #{$browser}transform: rotate(0deg);
+    }
+    100% {
+        #{$browser}transform: rotate(360deg);
+    }
+}
+@include keyframes(shakeit) {
+    0% {
+        #{$browser}transform: translate(0px, 0px);
+    }
+    25% {
+        #{$browser}transform: translate(0px, -2px);
+    }
+    75% {
+        #{$browser}transform: translate(0px, 2px);
+    }
+    100% {
+        #{$browser}transform: rotate(0px, 0px);
+    }
+}

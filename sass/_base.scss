@@ -1,0 +1,119 @@
+@import 'compass';
+@import "compass/reset";
+@import "layout/grid";
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////// COLORS //////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
+// Colores de texto
+
+$text:#212121;
+$link:black;
+
+// Colores
+
+$darkblue: #0B537B;
+$blue:#05779C;
+$skyblue: #0099CC;
+$lightgrey: #EFEFEF;
+$red:#E7344A;
+$green: #a3cf1f;
+$yellow: #F8B655;
+$darkyellow: #CD913F;
+$darkorange: #DBAE73;
+$orange: #FDB14F;
+$lightergrey: #ebeed9;
+$grey: #8C8B89;
+$darkgrey: #262626;
+// Social
+
+$networks: ('fb' #5475b4 'Facebook', 'gl' #f03530 'Google', 'tw' #55acee 'Twitter', 'ln' #0085af 'LinkedIn', 'rss' #ff9900 'Rss');
+
+$networks_full: ('facebook' #5475b4 '\ea8c', 'google' #f03530 '\ea87', 'twitter' #55acee '\ea91', 'linkedin' #0085af '\eac9');
+
+
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////// ANIMATIONS Y TRANSITIONS VARS ///////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+// speed
+
+$fast:.2s;
+$speed: .5s;
+
+// easing
+
+$bezier: cubic-bezier(.9,0,.1,1);
+$bezier2: cubic-bezier(.7,.25,.3,.75);
+
+$transition: all $bezier2 $fast;
+%transition{
+    transition: $transition;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////// LAYOUT //////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
+// DIMENSIONES
+
+$m: 1.5em; // margen en em
+
+$max-screen-wrap:1050px; // Wrapper máximo del contenido
+$todo:100%;
+
+
+// DIMENSIONES : RESPONSIVE QUERIES
+// Usage:
+// @media #{$desktop} { ... }
+
+
+//
+$huge: "only screen and (min-width : 1400px)";
+$desktop: "only screen and (min-width : 1050px)";
+
+$tablet: "only screen and (max-width : 992px)";
+$mobile: "only screen and (max-width: 520px)";
+
+
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////// FONTS //////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+
+$font-size: 16px;
+$font-medium:105%;
+$font-small:80%;
+$font-min:10px;
+$font-post-header: 110%;
+$font-big: 140%;
+$font-huge: 180%;
+
+$font-h2: 260%;
+$font-h3: 220%;
+
+
+$font-hero-title: 480%;
+
+$font: "Roboto", "Lucida Grande", sans-serif;
+$font2: 'Droid Serif', Georgia,Times,Times New Roman,serif;  
+$font3: 'Roboto Condensed', sans-serif;
+
+//@include font-face('Icons', font-files("icons/busqueda.eot", "icons/busqueda.woff", "icons/busqueda.ttf", "icons/busqueda.svg"));
+
+/////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+
+$huege: "screen and (min-width: 1380px)";
+$desktop: "screen and (min-width: 1200px)";
+$tablet-landscape: "screen and (max-width: 960px)";
+$tablet: "screen and (max-width: 768px)";
+$mobile: "screen and (max-width: 580px)"   
+    
+
+    
