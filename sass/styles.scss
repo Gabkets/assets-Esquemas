@@ -3,7 +3,7 @@
 @import "main";
 
 #content{
-    margin-top: 8em;
+    margin-top: 100px;
     padding-top: 2em;
     ul li{
         padding-left: .5em;
@@ -17,13 +17,30 @@
     a:hover{
         text-decoration: underline;
     }
-    
-p {
-   margin-bottom: 1em;
-   line-height: 1.5;
-   font-size: 18px;
+    p{
+       margin-bottom: 1em;
+       line-height: 1.5;
+       font-size: 18px;
+    }
+    h2,h3{
+        font-family: $font;    
+    }
+    h2{
+        font-size: 2.9em;
+    }
+    h3{
+        font-size: 2em;
+    }
+    @media #{$tablet}{
+        h2{
+            font-size: 2em;
+        }
+        h3{
+            font-size: 1.5em;
+        }
+    }
 }
-}
+
 .l-header .top{
     padding: 1em 2em;
 }
@@ -39,9 +56,12 @@ a.featured-link{
     margin: 1em 0;
 }
 .node-article {
-     border-bottom: 1px solid $lightgrey;
+    border-bottom: 1px solid $lightgrey;
+    h1{
+        font-size: 3em;
+    }
     p{
-    font-family: $font2;
+        font-family: $font2;
     }
 }
 .field-name-field-itm-body img{
@@ -95,27 +115,6 @@ a.featured-link{
         }
     }
 }
-#content{
-    margin-top: 100px;
-    padding-top: 2em;
-    h2{
-        font-size: 2.9em;
-    }
-    h3{
-        font-size: 2em;
-    }
-    h2,h3{
-        font-family: $font;    
-    }
-    @media #{$tablet}{
-        h2{
-            font-size: 2em;
-        }
-        h3{
-            font-size: 1.1em;
-        }
-    }
-}
 .field-collection-view{
     border: none!important;
 }
@@ -136,6 +135,7 @@ a.featured-link{
         padding: 1em 15px 1.5em;
         margin: 1em 0;
         border-bottom: 1px solid #efefef;
+        overflow: hidden;
     }
     .image{
       width: 30%;
@@ -150,6 +150,9 @@ a.featured-link{
         a{
             color: #15a2d1;
         }
+        .text{
+             font-family: $font2;
+        }
     }
     @media screen and (max-width: 610px){
       .image{
@@ -159,6 +162,7 @@ a.featured-link{
       .box-text{
          display: block;
          padding-left:0; 
+         
       } 
     }
 }
@@ -171,4 +175,33 @@ a.featured-link{
   margin-bottom: 0.7em;
 }
 
-  
+
+.node-type-page{
+     .node-header-big header{
+        display: table;
+        width: 100%;
+        padding-top:0; 
+        h1{
+          display: table-cell;
+          vertical-align: middle;
+        } 
+     }
+}
+#trigger-nav{
+    & span{
+        background: $grey;
+    }
+    .transparent & span{
+        background: white;
+    }
+    .pushed .l-header .top.active & span{
+        background: #8C8B89;
+    }  
+}
+.image-fit-wrap{
+     @include transform( translate(-50%, 0));
+}
+   
+.translation-link{
+  display: none;
+}

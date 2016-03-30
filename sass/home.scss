@@ -3,13 +3,15 @@
 @import "layout/home";
 @import "main";
 
-.view-cases-nav .views-row-2{
-     @extend .back-lightgrey;
+.view-cases-nav {
+    .views-row-2{
+        @extend .back-lightgrey;
+        & .cut-link, & .square-left li:before{
+            background: white;
+        }
+    }
 }
-.view-cases-nav .views-row-2 .cut-link,
-.view-cases-nav .views-row-2 .square-left li:before{
-    background: white;
-}
+
 .view-articles-nav{
     a:hover{
         text-decoration: underline;
@@ -42,6 +44,7 @@
         }
     }
 }
+
 #pre-footer {
     position: relative;
 }
@@ -189,6 +192,7 @@
         .table-cell.col-38{
             display: block;
             width: 100%!important;
+            min-height: 250px;
         }
         .table-cell.col-62{
             display: block;
@@ -207,12 +211,7 @@
     background: $darkblue;
 }
 
-.not-front #trigger-nav span{
-  background: grey;
-}
-.not-front .grey a:hover{
-  color: black;
-}
+
 
 /**/
 
@@ -261,6 +260,9 @@
         }
      }
 }
+
+$transition-4s: all .4s ease-in-out;
+
 .bar-separator{
   float: left;
   height: 1em;
@@ -280,40 +282,68 @@ div.bar{
   top: 0;
   height: 100%;
   background: yellow;
-  transition: all .4s ease-in-out;
+  @include transition($transition-4s);
 }
-.bar .checkpoint{
-  position: absolute;
-  top: -0.3em;
-  bottom: -0.3em;
-  width: 1px;
-  background: rgba(255,255,255,.4);
-  margin-left: -0.5px;
-  transition: all .4s ease-in-out;
+.bar{
+    .checkpoint{
+      position: absolute;
+      top: -0.3em;
+      bottom: -0.3em;
+      width: 1px;
+      background: rgba(255,255,255,.4);
+      margin-left: -0.5px;
+      @include transition($transition-4s);
+        &.active{
+            background: yellow;
+        }
+        &.c-1{
+            left: 20%;
+        }
+        &.c-2{
+            left: 40%;
+        }
+        &.c-3{
+            left: 60%;
+        }
+        &.c-4{
+            left: 80%;
+        }
+    }
+    .marker{
+      position: absolute;
+      top: -0.4em;
+      height: 0.8em;
+      width: 0.8em;
+      background: yellow;
+      border-radius: 50%;
+      left: 20%;
+      margin-left: -0.4em;
+      @include transition($transition-4s);
+    }        
+} 
+
+.image-fit{
+    img{
+        @include transform( translate(-50%, 0));
+    }
 }
-.bar .checkpoint.active{
-  background: yellow;
+
+.transparent-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+  font-weight: 100;
 }
-.bar .checkpoint.c-1{
-  left: 20%;
+.transparent-input::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+  font-weight: 100;
 }
-.bar .checkpoint.c-2{
-  left: 40%;
+.transparent-input:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+  font-weight: 100;
 }
-.bar .checkpoint.c-3{
-  left: 60%;
+.transparent-input:-moz-placeholder { /* Firefox 18- */
+  color: white;
+  font-weight: 100;
 }
-.bar .checkpoint.c-4{
-  left: 80%;
-}
-.bar .marker{
-  position: absolute;
-  top: -0.4em;
-  height: 0.8em;
-  width: 0.8em;
-  background: yellow;
-  border-radius: 50%;
-  left: 20%;
-  margin-left: -0.4em;
-  transition: all .4s ease-in-out;
+#back-2 img{
+  left: 49.9%;
 }

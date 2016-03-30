@@ -280,8 +280,8 @@ a.featured-link{
     background: $darkgrey;
     overflow: hidden;
     padding: 40px; 
-    
-     @media #{$mobile}{
+    @media #{$mobile}{
+        padding: 40px 10px; 
         #block-menu-menu-bottom-menu{
             float: none;
             width: 100%;
@@ -290,11 +290,11 @@ a.featured-link{
             }
         }
         .social-block{
-            float: none;
-            width: 133px;
-            display: block;
-            margin: 20px auto;
-            text-align: center;
+        float: none;
+        width: 133px;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
         }   
     }
     .not-front &{
@@ -379,12 +379,6 @@ a.featured-link{
         background: white;
         display: block;
         margin-bottom: 6px;
-    }
-    .not-front & span{
-        background: $grey;
-    }
-    .not-front .transparent & span{
-        background: white;
     }
 }
 .l-header{
@@ -544,9 +538,6 @@ a.featured-link{
         top: 0;
         left: 50%;
         max-width: none;
-        .front &{
-            @include transform( translate(-50%, 0));
-        }
     }
 }
 .image-fit-wrap{
@@ -554,9 +545,6 @@ a.featured-link{
   top: 0;
   left: 50%;
   max-width: none;
-  .not-front &{
-     @include transform( translate(-50%, 0));
-  } 
   width: 100%;
   z-index: -1;
   height: 90vh;
@@ -620,3 +608,52 @@ a.featured-link{
 }
 
 
+#block-menu-menu-bottom-menu{
+  margin: 10px 0;
+}
+
+.node-header-big .image-fit-wrap img {
+  @include  transform(translate(-50%, 0));
+}
+
+
+
+.overlay{
+  top:0;
+}
+#sidemenu.hide{
+  left: inherit;
+  right: 0;
+  @include transform(translate(100%, 0));  
+}
+#sidemenu{
+  left: inherit;
+  right: 0;
+  @include transform(translate(0, 0));  
+}
+.pushed #main-nav{
+  left: -200px;
+}
+
+.pushed #trigger-nav span{
+  transition: .6s all;
+  background: white;
+}
+.pushed .white #trigger-nav span{
+  background: grey!important;
+}
+.pushed #trigger-nav span:first-child{
+    @include transform(rotate(45deg));
+    position: relative;
+    top: 8px;
+    display: block;
+}
+.pushed #trigger-nav span:last-child{
+   @include transform(rotate(-45deg));
+    position: relative;
+    top: -8px;
+    display: block;
+}
+.pushed #trigger-nav span:nth-child(2){
+  opacity: 0;
+}
