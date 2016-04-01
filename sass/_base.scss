@@ -30,9 +30,9 @@ $grey: #8C8B89;
 $darkgrey: #262626;
 // Social
 
-$networks: ('fb' #5475b4 'Facebook', 'gl' #f03530 'Google', 'tw' #55acee 'Twitter', 'ln' #0085af 'LinkedIn', 'rss' #ff9900 'Rss');
+$networks: ('fb' #5475b4 'Facebook', 'gl' #f03530 'Google', 'tw' #55acee 'Twitter', 'ln' #0085af 'LinkedIn', 'rss' #ff9900 'Rss', 'wa' #189d0e 'Whatsapp', 'em' $blue 'Email', 'more' $blue 'More');
 
-$networks_full: ('facebook' #5475b4 '\ea8c', 'google' #f03530 '\ea87', 'twitter' #55acee '\ea91', 'linkedin' #0085af '\eac9');
+$networks_full: ('facebook' #5475b4 '\ea8c', 'google' #f03530 '\ea87', 'twitter' #55acee '\ea91', 'linkedin' #0085af '\eac9', 'whatsapp' #189d0e '\e900');
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -107,6 +107,7 @@ $font3: 'Roboto Condensed', sans-serif;
 /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
+$transition-4s: all .4s ease-in-out;
 
 
 $huege: "screen and (min-width: 1380px)";

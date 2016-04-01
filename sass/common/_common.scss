@@ -5,6 +5,15 @@
 //@import "libraries/animations";
 //@import "libraries/drupal-defaults";
 //@import "libraries/placeholders";
+
+%clear{
+    &:after, &:before{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
 input, textarea {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
@@ -30,7 +39,7 @@ a{
     color: $blue;
 }
 h1, h2, h3, h4 {
-    margin: 1.414em 0 0.5em;
+    margin: 1.2em 0 0.5em;
     font-weight: inherit;
 	line-height: 1.2;
 }
@@ -74,6 +83,26 @@ small, .font_small {font-size: 0.707em;}
     @media #{$tablet}{
             font-size: 3em;
     }   
+    @media #{$mobile}{
+            font-size: 2.5em;
+    }
+    .red{
+        display: inline-block;
+        height: 42px;
+        line-height: 24px;
+        @media #{$tablet-landscape}{
+            height: 28px;
+            line-height: 15px;
+        }
+        @media #{$tablet}{
+            height: 22px;
+            line-height: 15px;
+        }
+        @media #{$mobile}{
+            height: 21px;
+            line-height: 9px;
+        }
+    }
 }
 .t-light{
     font-weight: 200;
@@ -99,25 +128,6 @@ img{
 .red{
     background: $red;
     color: white;
-}
-
-.t-big .red{
-    display: inline-block;
-    height: 42px;
-    line-height: 24px;
-   
-    @media #{$tablet-landscape}{
-        height: 28px;
-        line-height: 15px;
-    }
-    @media #{$tablet}{
-        height: 22px;
-        line-height: 15px;
-    }
-    @media #{$mobile}{
-        height: 12px;
-        line-height: 9px;
-    }
 }
 .white a,
 .white{
@@ -280,6 +290,9 @@ a.featured-link{
     background: $darkgrey;
     overflow: hidden;
     padding: 40px; 
+    a.active-trail{
+        color: white;
+    }
     @media #{$mobile}{
         padding: 40px 10px; 
         #block-menu-menu-bottom-menu{
@@ -291,7 +304,6 @@ a.featured-link{
         }
         .social-block{
         float: none;
-        width: 133px;
         display: block;
         margin: 20px auto;
         text-align: center;
@@ -303,12 +315,6 @@ a.featured-link{
 }
 .w-contact-form{
     background: $darkblue;
-}
-@media screen and (max-width: 580px){
-    .t-big{
-        font-size: 1.5em;
-        margin-bottom: .2em;
-    }
 }
 
 .transparent-input{
@@ -382,15 +388,17 @@ a.featured-link{
     }
 }
 .l-header{
-    padding:0 2em;
     overflow: hidden;
     position: relative;
     .top{
         position: fixed;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0);
+        top: 0;    
         width: 100%;
         left: 0;
-        padding: 2em;
-        transition: .2s all;
+        padding: 1em 2em;
+        transition: .2s background;
         z-index: 3;
         @media #{$mobile}{
             padding: 1em!important;
@@ -415,11 +423,9 @@ a.featured-link{
             }
         }
         &.active{
-            padding: 1em 2em;
-            background: white;
-            z-index: 10;
-            top: 0;
-            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+           // padding: 1em 2em;
+           background: rgba(255, 255, 255, 1);
+           box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
             .l-navigation a{
                 color: rgba($darkgrey, 1);   
             }
@@ -440,13 +446,16 @@ a.featured-link{
                 color: rgba($darkgrey, 1);   
             }
             .l-navigation a:hover{
-                 color: $darkgrey; 
+                 color: $skyblue; 
             }
             span{
                 background: $grey;
             }
             .second-logo{
                 opacity: 1;
+            }
+            a:hover{
+                 color: $skyblue; 
             }
             a.featured-link{
                 background: $grey;
@@ -639,7 +648,8 @@ a.featured-link{
   transition: .6s all;
   background: white;
 }
-.pushed .white #trigger-nav span{
+.pushed .white #trigger-nav span,
+.pushed .active #trigger-nav span{
   background: grey!important;
 }
 .pushed #trigger-nav span:first-child{
@@ -656,4 +666,45 @@ a.featured-link{
 }
 .pushed #trigger-nav span:nth-child(2){
   opacity: 0;
+}
+
+.c-social{
+margin: 1em 0;    
+ float: right;
+    label{
+        display: inline-block;
+    }
+    a{
+        font-family: 'Icons';
+        display: inline-block;
+        line-height: 1.5em;
+        width: 1.5em;
+        text-align: center;
+        margin-left: $m/6;
+        font-size: 150%;
+        border-radius: 2px;
+        color: $lightgrey;
+        @each $item in $networks {
+            #{unquote('&.#{nth($item, 1)}')}{
+                color: nth($item, 2);
+                &:hover{
+                    color: darken(nth($item, 2),10%);
+                }
+            }
+        }
+    }
+    &.invert{
+        a{
+            color: white;
+            @each $item in $networks {
+                #{unquote('&.#{nth($item, 1)}')}{
+                    background-color: nth($item, 2);
+                    &:hover{
+                        color: white;
+                        background-color: darken(nth($item, 2),10%);
+                    }
+                }
+            }
+        }
+    }
 }

@@ -31,12 +31,19 @@
     h3{
         font-size: 2em;
     }
+    h4{
+        font-weight: bold;
+        font-size: 1.3em;
+    }
     @media #{$tablet}{
         h2{
             font-size: 2em;
         }
         h3{
             font-size: 1.5em;
+        }
+        .width-700{
+            margin: 0 1em;
         }
     }
 }
@@ -59,6 +66,9 @@ a.featured-link{
     border-bottom: 1px solid $lightgrey;
     h1{
         font-size: 3em;
+        @media #{$tablet}{
+            font-size: 2.5em;
+        }
     }
     p{
         font-family: $font2;
@@ -187,12 +197,28 @@ a.featured-link{
         } 
      }
 }
+
+.node-header-big header{
+    @media #{$tablet-landscape}{
+        display: table;
+        width: 100%;
+        padding-top:0; 
+        .mobile-align{
+          display: table-cell;
+          vertical-align: middle;
+        } 
+    }
+}
+
 #trigger-nav{
     & span{
         background: $grey;
     }
     .transparent & span{
         background: white;
+    }
+    .transparent.active & span{
+         background: #8C8B89;
     }
     .pushed .l-header .top.active & span{
         background: #8C8B89;
